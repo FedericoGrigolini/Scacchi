@@ -16,6 +16,10 @@ public class Posto {
 		return this.busy;
 	}
 	
+	public boolean getColor(){
+		return this.colore;
+	}
+	
 	public Pezzo getPezzo(){
 		return this.occupante;
 	}

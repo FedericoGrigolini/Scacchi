@@ -23,6 +23,7 @@ public class Pedone extends Pezzo {
 					}
 				}else{
 					if(!h[a][b].occupato()){
+						h[a][b].getPezzo().mangiato();
 						h[Px][Py].getPezzo().setPos(a, b);
 						return true;
 					}else{
