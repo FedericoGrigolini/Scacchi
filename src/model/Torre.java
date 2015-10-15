@@ -6,8 +6,75 @@ public class Torre extends Pezzo{
 		super(x, y, c);
 		// TODO Auto-generated constructor stub
 	}
+
+	@Override
+	public void movimento(Posto[][] h) {
+		int Px=this.getX();
+		int Py=this.getY();
+		int a=Px;
+		int b=Py;
+		boolean stop=false;
+		while(a<=7||!stop){
+			a++;
+			if(h[a][b].occupato()){
+				if(h[a][b].getPezzo().getColor()==this.getColor()){
+					stop=true;
+				}else{
+					stop=true;
+					h[a][b].setAvaiable(true);
+				}
+			}else{
+				h[a][b].setAvaiable(true);
+			}
+		}
+		stop=false;
+		a=Px;
+		while(a>=0||!stop){
+			a--;
+			if(h[a][b].occupato()){
+				if(h[a][b].getPezzo().getColor()==this.getColor()){
+					stop=true;
+				}else{
+					stop=true;
+					h[a][b].setAvaiable(true);
+				}
+			}else{
+				h[a][b].setAvaiable(true);
+			}
+		}
+		stop=false;
+		a=Px;
+		while(b<=7||!stop){
+			b++;
+			if(h[a][b].occupato()){
+				if(h[a][b].getPezzo().getColor()==this.getColor()){
+					stop=true;
+				}else{
+					stop=true;
+					h[a][b].setAvaiable(true);
+				}
+			}else{
+				h[a][b].setAvaiable(true);
+			}
+		}
+		stop=false;
+		b=Py;
+		while(b>=0||!stop){
+			b--;
+			if(h[a][b].occupato()){
+				if(h[a][b].getPezzo().getColor()==this.getColor()){
+					stop=true;
+				}else{
+					stop=true;
+					h[a][b].setAvaiable(true);
+				}
+			}else{
+				h[a][b].setAvaiable(true);
+			}
+		}
+	}
 	
-	private boolean occupatoTorre(int a, int b, Posto[][] h) { 
+	/*private boolean occupatoTorre(int a, int b, Posto[][] h) { 
 		int Px=this.getX();
 		int Py=this.getY();
 		if(a==Px){
@@ -34,9 +101,9 @@ public class Torre extends Pezzo{
 			}
 		}	
 		return false;
-	}
+	}*/
 	
-	@Override
+	/*@Override
 	public boolean movimento(int a, int b, Posto[][] h) {
 		int Px=this.getX();
 		int Py=this.getY();
@@ -54,6 +121,6 @@ public class Torre extends Pezzo{
 			}
 		}
 		return false;
-	}
+	}*/
 
 }

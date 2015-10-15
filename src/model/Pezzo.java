@@ -5,15 +5,20 @@ abstract public class Pezzo {
 	private int x;
 	private int y;
 	private boolean colore; // false nero true bianco
-	private boolean eaten; // 0 vivo 1 mangiato
+	private boolean mangiato; // false vivo true mangiato
+	private boolean moved; // true, è già stato mosso una volta.
 	
 	public Pezzo(int x,int y,boolean c){
 		this.x=x;
 		this.y=y;
 		this.colore=c;
-		this.eaten=false;
+		this.mangiato=false;
+		this.moved=false;
 	}
 	
+	public boolean getMoved(){
+		return this.moved;
+	}
 	public int getX(){
 		return this.x;
 	}
@@ -24,7 +29,7 @@ abstract public class Pezzo {
 		return this.colore;
 	}
 	public boolean getEaten(){
-		return this.eaten;
+		return this.mangiato;
 	}
 	
 	public void setPos(int a,int b){
@@ -32,9 +37,9 @@ abstract public class Pezzo {
 		this.y=b;
 	}
 	
-	public void mangiato(){
-		this.eaten=true;
+	public void setMangiato(){
+		this.mangiato=true;
 	}
 	
-	abstract public boolean movimento(int a,int b,Posto[][] h); 
+	abstract public void movimento(Posto[][] h); 
 }
